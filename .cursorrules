@@ -1,0 +1,94 @@
+
+🌐 Modern, Responsive ve Çok Dilli Danışmanlık Web Sitesi Tasarımı  
+(Tailwind CSS + Alpine.js ile, HTML, CSS, JavaScript tabanlı)
+sayfa tek yapıda olsun ayrıca sayfa içerisinde scroll yapısı olsun.
+sayfa yüklenince Vizyoner Bakış Kalitesi Yükleniyor gibi bir ekranda versin 
+Danışmanlık hizmeti sunan modern, şık ve kullanıcı dostu bir web sitesi tasarımı oluşturulacaktır. Web sitesi yalnızca HTML, CSS (Tailwind) ve JavaScript (Alpine.js) ile yapılacak; Türkçe ve İngilizce dil desteği sunacaktır. Tüm cihazlarda (mobil, tablet, masaüstü) sorunsuz çalışacak şekilde responsive ve erişilebilir olacaktır.
+
+🧩 Tasarım ve Yapı
+- Logo: Sadece navbar alanında yer alacaktır.
+- Component Yapısı: Kodlar, tekrar kullanılabilir component yapısında yazılacak, sade ve düzenli olacaktır.
+- UI/UX: Modern tasarım prensiplerine uygun, minimalist ve sezgisel kullanıcı arayüzü kullanılacaktır.
+
+🔍 Sayfa Özellikleri
+- Anasayfa: Hizmet tanıtımı, dikkat çekici görseller, başlık/slogan ve temel bilgiler.
+- Hakkımda Sayfası: Kısa özgeçmiş, vizyon ve misyon bilgileri.
+- Hizmetler Sayfası: Danışmanlık türleri ve detaylı açıklamaları.
+- İletişim Sayfası: İletişim bilgileri + form üzerinden e-posta gönderimi (3. parti servisle).
+- Dil Seçimi: Türkçe - İngilizce dilleri arasında geçiş yapılabilecek.
+
+⚙️ Teknik Özellikler
+- HTML:
+  - Semantik HTML5 etiketleri ile yapılandırma (<header>, <section>, <footer>, vb.).
+- Tailwind CSS:
+  - Responsive (mobil/tablet/masaüstü uyumlu)
+  - Flexbox & Grid yapısı
+  - Modern, sade ve temiz stil
+- Alpine.js (JavaScript):
+  - Dinamik dil değişimi
+  - Form doğrulama ve etkileşim
+  - İletişim formu için 3. parti mail servisi entegrasyonu
+
+🎯 Hedef
+Sade, profesyonel, modern ve kullanıcı dostu bir web sitesi tasarımı oluşturarak danışmanlık hizmetlerini etkili bir şekilde sunmak.
+
+ANA SAYFA:
+Vizyoner bakış açısıyla gelişin, dönüşün ve emin adımlarla büyüyün!
+25 yıllık deneyimimizle stratejik iş ortağınız olarak yanınızdayız.
+Vizyonumuz
+İş ortaklarımızın gelişim ve dönüşümleri için stratejik iş ortağı olarak destek veririz.
+Amacımız
+Stratejik yönetim, kurumsal gelişim ve insan kaynakları alanlarında yenilikçi çözümler sunarak kurum
+ve kuruluşların geleceğe güçlü adımlarla ilerlemesine rehberlik ederiz.
+Çalışma Modelimiz:
+İhtiyaçlarınızı ve beklentilerinizi analitik bakış açısıyla analiz eder, ekosisteminizi ve varmak istediğiniz
+hedefi ve stratejik amaçları birlikte tespit eder ve yolculuğa başlarız.
+Değer Önermemiz:
+ Kurumsal yapınızı stratejik hedeflerle uyumlu hale getirerek verimlilik ve etkinlik artışı
+sağlıyoruz.
+ İnsan kaynakları yapınızı stratejik iş ortağına dönüştürerek, performans ve bağlılığı birlikte
+artırıyoruz.
+ Başarıyı tesadüfe bırakmadan, hedeflerle hizalanan performans sistemleri kuruyoruz.
+
+HİZMETLERİMİZ:
+ Strateji Yönetimi Danışmanlığı: Stratejik Yön Belirleme, Ekosistem Analizi, Hedef Belirleme,
+Hedeflerin Yayılımı
+ Kurumsal Performans Yönetimi Danışmanlığı: OKR (Objective Key Results), Balanced
+Scorecard (Dengelenmiş Kurum Karnesi)
+ İnsan Kaynakları Danışmanlığı: Yönetici Seçme ve Yerleştirme, 360 Derece Performans
+Yönetimi, Liderlik Gelişim Programları, yetkinlik bazlı İK modeli geliştirme, Norm kadro analizi
+ve iş gücü planlaması, iş analizi ve görev tanımlarının yeniden yapılandırılması, kariyer
+yönetimi ve yedekleme sistemlerinin kurulması
+ Toplam Kalite Yönetimi Danışmanlığı: EFQM Özdeğerlendirme ve EFQM Rehberliği
+ Süreç Yönetimi Danışmanlığı: Uygun süreç modelinin tasarımı, süreçlerin sahiplendirilmesi,
+süreçlerin yönetimi, süreç KPI larının belirlenmesi, süreçlerin iyileştirilmesi ve süreç
+optimizasyonu
+
+HAKKIMIZDA:
+Vizyoner Bakış Eğitim ve Danışmanlık olarak, kurumların stratejik hedeflerine
+ulaşmalarına rehberlik eden, sürdürülebilir gelişim ve dönüşüm süreçlerinde güvenilir
+bir iş ortağı olmayı hedefliyoruz. Her biri kendi alanında uzmanlaşmış eğitmen ve
+danışman kadromuzla, farklı sektörlerde edindiğimiz geniş deneyimi bir araya
+getiriyor; her kuruma özel, uygulanabilir ve sonuç odaklı çözümler sunuyoruz.
+Ekibimiz; stratejik yönetim, insan kaynakları, kurumsal performans sistemleri, süreç
+yönetimi, organizasyonel yapılanma, kalite yönetimi ve dijital dönüşüm gibi alanlarda
+derin bilgi birikimine sahip profesyonellerden oluşmaktadır. Uzmanlarımız, üretimden
+hizmete, kamu kurumlarından teknoloji şirketlerine kadar pek çok farklı sektörde aktif
+rol almış, değişim yönetimi, kültürel dönüşüm ve strateji hizalama süreçlerinde liderlik
+yapmış deneyimli danışmanlardır.
+
+Müşteri odaklı yaklaşımımızla, her kurumun kendi dinamiklerini ve ihtiyaçlarını
+dikkate alarak özel çözümler geliştiriyoruz. Eğitici ve geliştirici programlarımız,
+sadece bilgi aktarmayı değil, aynı zamanda kurum içinde kalıcı bir gelişim kültürü
+oluşturmayı amaçlar.
+İleri Bakış olarak biz; sadece bugünün değil, yarının ihtiyaçlarını da gözeten bir bakış
+açısıyla çalışıyor; kurumları geleceğe taşıyan yapıların kurulmasına destek veriyoruz.
+Sunduğumuz her hizmet, güçlü analiz, stratejik öngörü ve ölçülebilir sonuç ilkeleriyle
+şekillenir.
+Kurumsal gelişiminizi birlikte planlamak, potansiyelinizi performansa dönüştürmek
+için buradayız.
+
+İLETİŞİM:
+Adres: Fatih / İstanbul / Türkiye
+e-mail: info@vizyonerbakis.com.tr
+Bizimle İletişime Geçin (form) bunlar yazsın 
