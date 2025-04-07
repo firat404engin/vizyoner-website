@@ -62,4 +62,4 @@ The website is compatible with all modern browsers:
 
 ## License
 
-© 2023 Vizyoner Danışmanlık. All rights reserved. 
+© 2025 Vizyoner Danışmanlık. All rights reserved. 
