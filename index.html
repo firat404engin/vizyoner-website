@@ -612,58 +612,62 @@
             z-index: 10;
         }
         
+        /* Loading icons container */
         .loading-icons {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
+            gap: 3rem;
             justify-content: center;
-            margin-top: 2rem;
-            gap: 2rem;
-            z-index: 10;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            align-items: center;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
         
-        /* Responsive icon layout */
+        /* Media query for tablets and mobile */
         @media (max-width: 768px) {
             .loading-icons {
-                gap: 1rem;
-                margin-top: 1rem;
-                padding: 0 0.5rem;
-            }
-            
-            .loading-icon i {
-                font-size: 1.6rem !important;
-                margin-bottom: 0.3rem;
-            }
-            
-            .loading-icon span {
-                font-size: 0.7rem !important;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .loading-icons {
-                gap: 0.75rem;
-                margin-top: 0.75rem;
-                justify-content: center;
-                width: 100%;
-                max-width: 280px;
-                padding: 0 0.5rem;
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+                margin-top: 2rem;
+                max-width: 100%;
             }
             
             .loading-icon {
-                flex: 0 0 auto;
-                width: 65px;
-                text-align: center;
+                width: 100%;
+                max-width: 180px;
             }
             
             .loading-icon i {
-                font-size: 1.4rem !important;
-                margin-bottom: 0.2rem;
+                font-size: 2.2rem;
             }
             
-            .loading-icon span {
-                font-size: 0.65rem !important;
-                white-space: nowrap;
+            .loading-icon p {
+                font-size: 0.9rem;
+                margin-top: 0.5rem;
+            }
+        }
+        
+        /* Smaller mobile devices */
+        @media (max-width: 480px) {
+            .loading-icons {
+                gap: 1.25rem;
+            }
+            
+            .loading-icon {
+                max-width: 160px;
+            }
+            
+            .loading-icon i {
+                font-size: 2rem;
+            }
+            
+            .loading-icon p {
+                font-size: 0.85rem;
             }
         }
         
@@ -2136,6 +2140,67 @@
 
     <!-- Include Animate.css library for animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    
+    <!-- FIX: Mobil düzeltmeler için ek stiller -->
+    <style>
+        /* Loading ekranındaki iç içe geçme sorununu çöz */
+        @media (max-width: 768px) {
+            .loading-icons {
+                display: flex;
+                flex-direction: column !important; /* Dikey yerleşim */
+                gap: 1.5rem !important;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                max-width: 300px;
+                margin: 1.5rem auto 0;
+            }
+            
+            .loading-icon {
+                margin-bottom: 0;
+                width: 100%;
+                max-width: 220px;
+            }
+            
+            .loading-icon i {
+                font-size: 2rem !important;
+                margin-bottom: 0.5rem;
+            }
+            
+            .loading-icon span {
+                font-size: 0.9rem !important;
+                display: block;
+                width: 100%;
+                text-align: center;
+                white-space: normal;
+            }
+        }
+        
+        /* Mobil sidebar'ı sabit hale getir */
+        @media (max-width: 768px) {
+            .sidebar-nav {
+                position: fixed !important;
+                left: 5px !important;
+                top: 50% !important;
+                transform: translateY(-50%) !important;
+                touch-action: auto !important; /* Sürüklemeyi devre dışı bırak */
+                cursor: default !important;
+                user-select: none;
+                pointer-events: auto;
+            }
+            
+            /* Sürükleme stili ve fonksiyonunu kaldır */
+            .sidebar-nav.dragging {
+                opacity: 1 !important;
+                transition: all 0.3s ease !important;
+            }
+            
+            /* Gear icon'u kaldır */
+            .sidebar-nav::after {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
 <body class="bg-gray-50 dark:bg-dark-primary dark:text-gray-100 font-sans antialiased transition-colors duration-300" x-data="site" x-init="init()">
     <!-- Loading Screen -->
@@ -3313,133 +3378,31 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const sidebar = document.querySelector('.sidebar-nav');
-            let isDragging = false;
-            let startX, startY, initialLeft, initialTop;
-            let dragThreshold = 5; // Minimum pixels to move before considering it a drag
-            let isTap = true; // Flag to determine if it's a tap or drag
-
-            // Touch events for mobile dragging
-            sidebar.addEventListener('touchstart', function(e) {
-                if (window.innerWidth <= 768) { // Only on mobile
-                    isTap = true; // Initial assumption: this is a tap
-                    
-                    // Get initial touch position
-                    const touch = e.touches[0];
-                    startX = touch.clientX;
-                    startY = touch.clientY;
-                    
-                    // Get initial sidebar position
-                    const rect = sidebar.getBoundingClientRect();
-                    initialLeft = rect.left;
-                    initialTop = rect.top;
-                }
-            }, { passive: true }); // Use passive for better scroll performance
+            const isMobile = window.innerWidth <= 768;
             
-            document.addEventListener('touchmove', function(e) {
-                if (window.innerWidth <= 768) {
-                    const touch = e.touches[0];
-                    const deltaX = Math.abs(touch.clientX - startX);
-                    const deltaY = Math.abs(touch.clientY - startY);
-                    
-                    // Check if movement is beyond threshold to consider it a drag
-                    if (deltaX > dragThreshold || deltaY > dragThreshold) {
-                        isDragging = true;
-                        isTap = false; // This is a drag, not a tap
-                        sidebar.classList.add('dragging');
-                        
-                        // Only prevent default if we're now dragging to allow scroll otherwise
-                        if (isDragging) {
-                            // Calculate new position
-                            const newLeft = initialLeft + (touch.clientX - startX);
-                            const newTop = initialTop + (touch.clientY - startY);
-                            
-                            // Set new position
-                            sidebar.style.left = newLeft + 'px';
-                            sidebar.style.top = newTop + 'px';
-                            sidebar.style.transform = 'none'; // Remove default centering
-                            
-                            // Prevent default to avoid scrolling while dragging
-                            e.preventDefault();
-                        }
-                    }
-                }
-            }, { passive: false }); // Can't be passive since we might preventDefault
-            
-            document.addEventListener('touchend', function(e) {
-                if (window.innerWidth <= 768) {
-                    if (isDragging) {
-                        isDragging = false;
-                        sidebar.classList.remove('dragging');
-                        
-                        // Save position in local storage for persistence
-                        const rect = sidebar.getBoundingClientRect();
-                        localStorage.setItem('sidebarLeft', rect.left);
-                        localStorage.setItem('sidebarTop', rect.top);
-                    }
-                }
-            });
-            
-            // Handle click events on sidebar navigation items
-            const navItems = sidebar.querySelectorAll('a');
-            navItems.forEach(item => {
-                item.addEventListener('click', function(e) {
-                    // Only handle navigation if it was a tap, not the end of a drag
-                    if (isTap) {
+            // Sadece tıklama olaylarını dinle, sürükleme olaylarını devre dışı bırak
+            if (isMobile) {
+                // Handle click events on sidebar navigation items
+                const navItems = sidebar.querySelectorAll('a');
+                navItems.forEach(item => {
+                    item.addEventListener('click', function(e) {
                         const target = this.getAttribute('href');
                         document.querySelector(target).scrollIntoView({behavior: 'smooth'});
-                    }
+                    });
                 });
-            });
-            
-            // Restore saved position on page load
-            if (window.innerWidth <= 768 && localStorage.getItem('sidebarLeft') && localStorage.getItem('sidebarTop')) {
-                setTimeout(() => {
-                    const storedLeft = parseFloat(localStorage.getItem('sidebarLeft'));
-                    // Ekran dışında ise düzelt
-                    if (storedLeft < 0) {
-                        sidebar.style.left = '5px';
-                    } else if (storedLeft > window.innerWidth - 60) {
-                        sidebar.style.left = (window.innerWidth - 60) + 'px';
-                    } else {
-                        sidebar.style.left = storedLeft + 'px';
-                    }
-                    
-                    const storedTop = parseFloat(localStorage.getItem('sidebarTop'));
-                    // Ekran dışında ise düzelt
-                    if (storedTop < 50) {
-                        sidebar.style.top = '50px';
-                    } else if (storedTop > window.innerHeight - 200) {
-                        sidebar.style.top = (window.innerHeight - 200) + 'px';
-                    } else {
-                        sidebar.style.top = storedTop + 'px';
-                    }
-                    
-                    sidebar.style.transform = 'none'; // Remove default centering
-                }, 500); // Wait for other scripts to initialize
-            }
-            
-            // Reset position when orientation changes
-            window.addEventListener('orientationchange', function() {
-                localStorage.removeItem('sidebarLeft');
-                localStorage.removeItem('sidebarTop');
+                
+                // Herhangi bir sürükleme olayını engellemek için
                 sidebar.style.left = '5px';
                 sidebar.style.top = '50%';
                 sidebar.style.transform = 'translateY(-50%)';
-            });
-            
-            // Add reset button functionality
-            sidebar.addEventListener('click', function(e) {
-                // Check if clicked on the gear icon (reset button)
-                if (e.target === sidebar && e.clientY > sidebar.getBoundingClientRect().bottom - 15) {
-                    localStorage.removeItem('sidebarLeft');
-                    localStorage.removeItem('sidebarTop');
-                    sidebar.style.left = '5px';
-                    sidebar.style.top = '50%';
-                    sidebar.style.transform = 'translateY(-50%)';
-                    e.preventDefault();
-                    e.stopPropagation();
-                }
-            });
+                
+                // LocalStorage'daki eski konumları temizle
+                localStorage.removeItem('sidebarLeft');
+                localStorage.removeItem('sidebarTop');
+            } else {
+                // Masaüstü cihazlar için normal davranış - sadece event listener'ları ekle
+                // Bu versiyonda herhangi bir sürükleme olayı işleme konmamıştır
+            }
         });
     </script>
 </body>
