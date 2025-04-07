@@ -612,62 +612,58 @@
             z-index: 10;
         }
         
-        /* Loading icons container */
         .loading-icons {
             display: flex;
-            flex-wrap: wrap;
-            gap: 3rem;
-            justify-content: center;
             align-items: center;
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 1rem;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 2rem;
+            z-index: 10;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
         }
         
-        /* Media query for tablets and mobile */
+        /* Responsive icon layout */
         @media (max-width: 768px) {
             .loading-icons {
-                display: flex;
-                flex-direction: column;
-                gap: 1.5rem;
-                margin-top: 2rem;
-                max-width: 100%;
-            }
-            
-            .loading-icon {
-                width: 100%;
-                max-width: 180px;
+                gap: 1rem;
+                margin-top: 1rem;
+                padding: 0 0.5rem;
             }
             
             .loading-icon i {
-                font-size: 2.2rem;
+                font-size: 1.6rem !important;
+                margin-bottom: 0.3rem;
             }
             
-            .loading-icon p {
-                font-size: 0.9rem;
-                margin-top: 0.5rem;
+            .loading-icon span {
+                font-size: 0.7rem !important;
             }
         }
         
-        /* Smaller mobile devices */
         @media (max-width: 480px) {
             .loading-icons {
-                gap: 1.25rem;
+                gap: 0.75rem;
+                margin-top: 0.75rem;
+                justify-content: center;
+                width: 100%;
+                max-width: 280px;
+                padding: 0 0.5rem;
             }
             
             .loading-icon {
-                max-width: 160px;
+                flex: 0 0 auto;
+                width: 65px;
+                text-align: center;
             }
             
             .loading-icon i {
-                font-size: 2rem;
+                font-size: 1.4rem !important;
+                margin-bottom: 0.2rem;
             }
             
-            .loading-icon p {
-                font-size: 0.85rem;
+            .loading-icon span {
+                font-size: 0.65rem !important;
+                white-space: nowrap;
             }
         }
         
@@ -1556,36 +1552,28 @@
 
     <!-- Draggable Mobile Sidebar Styles -->
     <style>
-        /* Draggable Mobile Sidebar */
+        /* Sabit Mobil Sidebar */
         @media (max-width: 768px) {
             .sidebar-nav {
                 position: fixed;
-                left: 5px; /* Daha yakın konumlandır */
+                left: 0;
                 top: 50%;
                 transform: translateY(-50%);
                 background: rgba(31, 41, 55, 0.9);
                 padding: 0.6rem 0.4rem;
-                border-radius: 1.2rem;
+                border-radius: 0 1.2rem 1.2rem 0; /* Sadece sağ tarafı yuvarlak */
                 box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
                 border: 1px solid rgba(168, 85, 247, 0.2);
-                touch-action: none; /* Prevent browser handling of touch gestures */
-                cursor: move;
+                touch-action: auto; /* Varsayılan dokunma davranışını etkinleştir */
+                cursor: default; /* El imlecini kaldır */
                 z-index: 100;
-                transition: transform 0.3s ease, opacity 0.3s ease;
+                transition: opacity 0.3s ease;
                 max-width: 50px; /* Maksimum genişlik */
             }
             
+            /* Grab işaretini kaldır */
             .sidebar-nav::before {
-                content: '';
-                position: absolute;
-                top: -6px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 20px;
-                height: 3px;
-                background: rgba(255, 255, 255, 0.2);
-                border-radius: 2px;
-                display: block;
+                display: none;
             }
             
             .sidebar-nav .tooltip {
@@ -1614,53 +1602,15 @@
                 box-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
             }
             
+            /* Dragging classes'ı devre dışı bırak */
             .sidebar-nav.dragging {
-                opacity: 0.8;
-                transition: none; /* Disable transitions during drag */
-            }
-            
-            .sidebar-nav.visible {
-                display: flex;
                 opacity: 1;
+                transition: opacity 0.3s ease;
             }
             
-            /* Subtle pulse animation for active item */
-            .sidebar-nav-item.active {
-                animation: nav-pulse 2s infinite;
-            }
-            
-            @keyframes nav-pulse {
-                0% {
-                    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.7);
-                }
-                70% {
-                    box-shadow: 0 0 0 8px rgba(168, 85, 247, 0);
-                }
-                100% {
-                    box-shadow: 0 0 0 0 rgba(168, 85, 247, 0);
-                }
-            }
-            
-            /* Add reset button to return sidebar to default position */
+            /* Reset butonunu kaldır */
             .sidebar-nav::after {
-                content: '\f013'; /* Gear icon */
-                font-family: 'Font Awesome 5 Free';
-                font-weight: 900;
-                font-size: 12px;
-                position: absolute;
-                bottom: -12px;
-                left: 50%;
-                transform: translateX(-50%);
-                color: rgba(255, 255, 255, 0.6);
-                background: rgba(31, 41, 55, 0.9);
-                width: 20px;
-                height: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 50%;
-                border: 1px solid rgba(168, 85, 247, 0.2);
-                cursor: pointer;
+                display: none;
             }
         }
     </style>
@@ -2140,67 +2090,6 @@
 
     <!-- Include Animate.css library for animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    
-    <!-- FIX: Mobil düzeltmeler için ek stiller -->
-    <style>
-        /* Loading ekranındaki iç içe geçme sorununu çöz */
-        @media (max-width: 768px) {
-            .loading-icons {
-                display: flex;
-                flex-direction: column !important; /* Dikey yerleşim */
-                gap: 1.5rem !important;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                max-width: 300px;
-                margin: 1.5rem auto 0;
-            }
-            
-            .loading-icon {
-                margin-bottom: 0;
-                width: 100%;
-                max-width: 220px;
-            }
-            
-            .loading-icon i {
-                font-size: 2rem !important;
-                margin-bottom: 0.5rem;
-            }
-            
-            .loading-icon span {
-                font-size: 0.9rem !important;
-                display: block;
-                width: 100%;
-                text-align: center;
-                white-space: normal;
-            }
-        }
-        
-        /* Mobil sidebar'ı sabit hale getir */
-        @media (max-width: 768px) {
-            .sidebar-nav {
-                position: fixed !important;
-                left: 5px !important;
-                top: 50% !important;
-                transform: translateY(-50%) !important;
-                touch-action: auto !important; /* Sürüklemeyi devre dışı bırak */
-                cursor: default !important;
-                user-select: none;
-                pointer-events: auto;
-            }
-            
-            /* Sürükleme stili ve fonksiyonunu kaldır */
-            .sidebar-nav.dragging {
-                opacity: 1 !important;
-                transition: all 0.3s ease !important;
-            }
-            
-            /* Gear icon'u kaldır */
-            .sidebar-nav::after {
-                display: none !important;
-            }
-        }
-    </style>
 </head>
 <body class="bg-gray-50 dark:bg-dark-primary dark:text-gray-100 font-sans antialiased transition-colors duration-300" x-data="site" x-init="init()">
     <!-- Loading Screen -->
@@ -3331,78 +3220,49 @@
     <!-- Add JavaScript for mobile sidebar tooltip interaction -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Handle mobile tooltip interactions
+            // Basitleştirilmiş tooltip işlevselliği 
             const sidebarLinks = document.querySelectorAll('.sidebar-link');
             
-            sidebarLinks.forEach(link => {
-                link.addEventListener('touchstart', function(e) {
-                    // Check if we're on mobile
-                    if (window.innerWidth <= 768) {
-                        const tooltip = this.querySelector('.tooltip');
-                        
-                        // Remove active class from all tooltips
-                        document.querySelectorAll('.tooltip').forEach(t => {
-                            if (t !== tooltip) {
-                                t.classList.remove('mobile-active');
-                            }
-                        });
-                        
-                        // Toggle active class on this tooltip
-                        tooltip.classList.toggle('mobile-active');
-                        
-                        // Prevent immediate navigation on first tap
-                        if (!tooltip.classList.contains('mobile-active')) {
-                            // If tooltip is not active, allow navigation
-                            return true;
-                        } else {
-                            // If tooltip just became active, prevent navigation
-                            e.preventDefault();
-                            return false;
-                        }
-                    }
+            // Küçük ekranlarda tooltip gösterme
+            if (window.innerWidth <= 768) {
+                document.querySelectorAll('.tooltip').forEach(tooltip => {
+                    tooltip.style.display = 'none';
                 });
-            });
-            
-            // Hide tooltips when tapping elsewhere
-            document.addEventListener('touchstart', function(e) {
-                if (!e.target.closest('.sidebar-link')) {
-                    document.querySelectorAll('.tooltip').forEach(tooltip => {
-                        tooltip.classList.remove('mobile-active');
-                    });
-                }
-            });
+            }
         });
     </script>
 
-    <!-- Add JavaScript for draggable sidebar -->
+    <!-- Add JavaScript for sidebar navigation -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const sidebar = document.querySelector('.sidebar-nav');
-            const isMobile = window.innerWidth <= 768;
             
-            // Sadece tıklama olaylarını dinle, sürükleme olaylarını devre dışı bırak
-            if (isMobile) {
-                // Handle click events on sidebar navigation items
-                const navItems = sidebar.querySelectorAll('a');
-                navItems.forEach(item => {
-                    item.addEventListener('click', function(e) {
-                        const target = this.getAttribute('href');
-                        document.querySelector(target).scrollIntoView({behavior: 'smooth'});
-                    });
+            // Handle click events on sidebar navigation items
+            const navItems = sidebar.querySelectorAll('a');
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    const target = this.getAttribute('href');
+                    document.querySelector(target).scrollIntoView({behavior: 'smooth'});
                 });
-                
-                // Herhangi bir sürükleme olayını engellemek için
-                sidebar.style.left = '5px';
-                sidebar.style.top = '50%';
-                sidebar.style.transform = 'translateY(-50%)';
-                
-                // LocalStorage'daki eski konumları temizle
-                localStorage.removeItem('sidebarLeft');
-                localStorage.removeItem('sidebarTop');
-            } else {
-                // Masaüstü cihazlar için normal davranış - sadece event listener'ları ekle
-                // Bu versiyonda herhangi bir sürükleme olayı işleme konmamıştır
-            }
+            });
+            
+            // Sidebar her zaman görünür olacak
+            sidebar.classList.add('visible');
+            
+            // LocalStorage'dan varsa eski konumları temizle
+            localStorage.removeItem('sidebarLeft');
+            localStorage.removeItem('sidebarTop');
+            
+            // Ekran boyutu değiştiğinde sidebar'ın görünürlüğünü kontrol et
+            window.addEventListener('resize', function() {
+                sidebar.classList.add('visible');
+            });
+            
+            // Sayfa kaydırma işlemi sırasında
+            window.addEventListener('scroll', function() {
+                // Sidebar her zaman görünür olsun
+                sidebar.classList.add('visible');
+            });
         });
     </script>
 </body>
