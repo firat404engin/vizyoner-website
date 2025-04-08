@@ -1,0 +1,44 @@
+
+Google Forms Entegrasyonu Kurulumu Adımları:
+
+1. **Google Form Oluşturma**
+   - Google Forms'u açın: https://forms.google.com
+   - Yeni bir form oluşturun veya mevcut bir formu kullanın.
+   - Formunuzun sorularını oluşturun ve her bir soruya uygun "Entry ID"leri almanız gerekecek.
+
+2. **Entry ID'leri Almak**
+   - Formu oluşturduktan sonra, formu düzenleme sayfasına gidin.
+   - Sağ tıklayarak "Inspect" veya "İncele" (Chrome'da) seçeneğini tıklayın.
+   - "input" etiketleri altında, her alanın `name` özelliğini bulun. Bu, formdaki her alanın benzersiz ID'sidir.
+     Örneğin:
+     - Name: `entry.657049332`
+     - Phone: `entry.156714938`
+     - Email: `entry.2002134717`
+     - Message: `entry.28319445`
+
+3. **Form HTML Koduna Entegre Etme**
+   - Formun HTML kodu içinde, her input elemanının `name` parametresine doğru Entry ID'lerini yerleştirin.
+     - Örneğin:
+       ```html
+       <input type="text" id="name" name="entry.657049332" required>
+       <input type="tel" id="phone" name="entry.156714938" required>
+       <input type="email" id="email" name="entry.2002134717" required>
+       <textarea id="message" name="entry.28319445" required></textarea>
+       ```
+
+4. **Formu Google Form URL'sine Yönlendirme**
+   - Formu işlemek için doğru URL'yi kullanmalısınız. Bu URL şu şekilde olacak:
+     ```html
+     action="https://docs.google.com/forms/d/e/1FAIpQLSf6BXUcrdX2Zv2__sshEyCGN_0KxNb6HkmY4jFxnEWVJO2bZA/formResponse"
+     ```
+     Burada, `1FAIpQLSf6BXUcrdX2Zv2__sshEyCGN_0KxNb6HkmY4jFxnEWVJO2bZA` kısmı, formun benzersiz ID'sidir ve her form için farklıdır.
+
+5. **Başka Ayarlar (Opsiyonel)**
+   - Google Forms entegrasyonunda, form başarılı bir şekilde gönderildikten sonra kullanıcıyı bilgilendirecek mesajlar ekleyebilirsiniz.
+   - Bunun için, formun `onsubmit` ve diğer etkileşimli öğelerini kullanabilirsiniz.
+
+6. **Formu Test Etme**
+   - Formu canlıda test ederek, tüm alanların doğru şekilde gönderildiğinden emin olun.
+   - Gönderilen veriler Google Formlar'da kayıtlı olacaktır.
+
+Not: Formun düzgün çalışabilmesi için `hidden_iframe` kullanımı gerekebilir.
