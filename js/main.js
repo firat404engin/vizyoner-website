@@ -1,4 +1,4 @@
-// Main JavaScript file for Vizyoner Danışmanlık website
+// Main JavaScript file for Vizyoner Bakış Eğitim ve Danışmanlık website
 
 document.addEventListener('alpine:init', () => {
     // Define Alpine.js data and functions
@@ -7,7 +7,7 @@ document.addEventListener('alpine:init', () => {
         isLoading: true,
         translations: {
             "tr": {
-                "title": "Vizyoner Danışmanlık",
+                "title": "Vizyoner Bakış Eğitim ve Danışmanlık",
                 "loading": "Vizyoner Bakış Kalitesi Yükleniyor...",
                 "home": "Ana Sayfa",
                 "about": "Hakkımızda",
@@ -18,7 +18,7 @@ document.addEventListener('alpine:init', () => {
                 "heroSubtitle": "25 yıllık deneyimimizle stratejik iş ortağınız olarak yanınızdayız.",
                 "heroButton": "İletişime Geç",
                 "aboutTitle": "Hakkımızda",
-                "aboutHeading": "Vizyoner Danışmanlık",
+                "aboutHeading": "Vizyoner Bakış Eğitim ve Danışmanlık",
                 "aboutText": "Uzun yıllara dayanan deneyim ve uzmanlıkla, işletmenizin başarısı için stratejik çözümler sunuyoruz. Müşteri odaklı yaklaşımımız ve yenilikçi bakış açımızla, işletmenizin potansiyelini maksimize etmenize yardımcı oluyoruz.",
                 "missionTitle": "Misyonum",
                 "missionText": "İşletmelerin sürdürülebilir büyümesini sağlamak için kaliteli ve yenilikçi danışmanlık hizmetleri sunmak.",
@@ -60,14 +60,14 @@ document.addEventListener('alpine:init', () => {
                 "emailInvalid": "Geçerli bir e-posta adresi girin",
                 "messageRequired": "Mesaj gereklidir",
                 "successMessage": "Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.",
-                "copyright": "© 2025 Vizyoner Danışmanlık. Tüm hakları saklıdır.",
+                "copyright": "© 2025 Vizyoner Bakış Eğitim ve Danışmanlık. Tüm hakları saklıdır.",
                 "designer": {
                   "name": "Fırat Engin",
                   "website": "https://firatengin-henna.vercel.app/"
               }
             },
             "en": {
-                "title": "Visionary Consulting",
+                "title": "Vizyoner Bakış Eğitim ve Danışmanlık",
                 "loading": "Loading Visionary Quality...",
                 "home": "Home",
                 "about": "About Us",
@@ -78,7 +78,7 @@ document.addEventListener('alpine:init', () => {
                 "heroSubtitle": "With 25 years of experience, we are by your side as your strategic business partner.",
                 "heroButton": "Get in Touch",
                 "aboutTitle": "About Us",
-                "aboutHeading": "Visionary Consulting",
+                "aboutHeading": "Vizyoner Bakış Eğitim ve Danışmanlık",
                 "aboutText": "With years of experience and expertise, we offer strategic solutions for your business success. With our client-focused approach and innovative perspective, we help you maximize the potential of your business.",
                 "missionTitle": "My Mission",
                 "missionText": "To provide quality and innovative consulting services to ensure sustainable growth of businesses.",
@@ -86,7 +86,7 @@ document.addEventListener('alpine:init', () => {
                 "visionText": "We provide support as a strategic business partner for the development and transformation of our business partners.",
                 "purposeTitle": "Our Purpose",
                 "purposeText": "We guide institutions and organizations to move forward with strong steps into the future by offering innovative solutions in strategic management, organizational development, and human resources.",
-                "workModelTitle": "Our Working Model",
+                "workModelTitle": "Our Methodology",
                 "workModelText": "We analyze your needs and expectations with an analytical perspective, identify your ecosystem, your target, and strategic goals together, and start the journey.",
                 "valuePropositionTitle": "Our Value Proposition",
                 "valueProposition1": "We increase efficiency and effectiveness by aligning your corporate structure with strategic goals.",
@@ -120,7 +120,7 @@ document.addEventListener('alpine:init', () => {
                 "emailInvalid": "Enter a valid email address",
                 "messageRequired": "Message is required",
                 "successMessage": "Your message has been sent successfully. We will get back to you as soon as possible.",
-                "copyright": "© 2025 Visionary Consulting. All rights reserved.",
+                "copyright": "© 2025 Vizyoner Bakış Eğitim ve Danışmanlık. All rights reserved.",
                 "designer": {
                   "name": "Fırat Engin",
                   "website": "https://firatengin-henna.vercel.app/"

@@ -1,4 +1,4 @@
-# Vizyoner Danışmanlık Website
+# Vizyoner Bakış Eğitim ve Danışmanlık Website
 
 Modern, responsive, and bilingual (Turkish and English) consulting website built with HTML, Tailwind CSS, and Alpine.js.
 
@@ -62,4 +62,4 @@ The website is compatible with all modern browsers:
 
 ## License
 
-© 2025 Vizyoner Danışmanlık. All rights reserved. 
+© 2025 Vizyoner Bakış Eğitim ve Danışmanlık. All rights reserved. 
